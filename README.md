@@ -12,11 +12,11 @@ python setup.py build develop
 4. Download the tempura models (predcls) and save in "model_path"
    
 6. Find the required folders in this order within scene_graph folder:
-*annotation
-*fasterRCNN
-*dataloader
-*lib
-*lib2
+* annotation
+* fasterRCNN
+* dataloader
+* lib
+* lib2
 
 
 7. Run the main file:
