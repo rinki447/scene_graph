@@ -1,6 +1,6 @@
 # Scene_graph
 1. Within scene_graph folder create "data" folder and download glove file there.
-2. Create fasterRCNN folder within scene_graph and download the required (coco trained or action genome trained) Faster-RCNN model.
+2. Create fasterRCNN folder within scene_graph and download the required (coco trained or action genome trained) Faster-RCNN model from https://github.com/jwyang/faster-rcnn.pytorch.
 3. Set up the fasterRCNN trained on coco dataset:
 
 ```python
@@ -9,7 +9,7 @@ cd fasterRCNN
 cd lib
 python setup.py build develop
 ```
-4. Download the tempura models (predcls) and save in "model_path"
+4. Download the tempura models (predcls) and save in "model_path" from https://drive.google.com/drive/folders/1m1xSUbqBELpogHRl_4J3ED7tlyp3ebv8
    
 6. Find the required folders in this order within scene_graph folder:
 * annotation
