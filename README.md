@@ -13,6 +13,7 @@ python setup.py build develop
    
 6. Find the required folders in this order within scene_graph folder:
 * annotation
+* data
 * fasterRCNN
 * dataloader
 * lib
