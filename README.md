@@ -1,6 +1,6 @@
 # Scene_graph
 
-#Requirements
+# Requirements
 * python=3.6
 * pytorch=1.1
 * scipy=1.1.0
@@ -13,7 +13,6 @@
 * tqdm
 * yaml
 
-#Process:
 The list of path to all video frames of required dataset are kept in "original_video_path" file (text file). The "modified_file_path" is a blank text file where video paths can be saved in sorted manner. The main file i.e, final_obj_rel_copy.py file loads those video frames using their path from this text file and then it initially uses fasterRCNN (coco trained) model to detect objects for all frames in all videos and save them into "saving_dir_path". 
 
 Next the final_obj_rel_copy.py file accesses those object details using "saving_dir_path" and generates scene graph captions by using "tempura_predcls" model. The relationships detected between human-object pairs for each frame are saved in "output_dir" path.
@@ -41,7 +40,7 @@ python setup.py build develop
 * lib2
 
 
-7. Run the main file:
+7. Run the main file to generate scene graph from videos:
 ```python
 python final_obj_rel_copy.py -mode predcls -datasize large -data_path ABC  -model_path XYZ.tar  -original_video_path MNP.txt -modified_file_path PQR.txt -output_dir  Activity_test_relation -saving_dir_path BCD -rel_mem_compute joint -rel_mem_weight_type simple -mem_fusion late -mem_feat_selection manual  -mem_feat_lambda 0.5  -rel_head gmm -obj_head linear -K 6 
 ```
