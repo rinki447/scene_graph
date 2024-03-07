@@ -21,7 +21,7 @@ Next the final_obj_rel_copy.py file accesses those object details using "saving_
 
 "data_path" is used to access the text files containing the object classes of COCO dataset (on which fasterRCNN is trained for this case),and relationship classes of action genome dataset respectively, saved inside annotation folder.
 
-1. Within scene_graph folder create "data" folder and download glove file there.
+1. Within scene_graph folder create "data" folder and download glove file there from https://drive.google.com/drive/folders/1Qrez_hfAKRqCqe7LlGX1xnGRwQZTdLVu?usp=sharing.
 2. Create fasterRCNN folder within scene_graph and download the required (coco trained or action genome trained) Faster-RCNN model from https://github.com/jwyang/faster-rcnn.pytorch.
 3. Set up the fasterRCNN trained on coco dataset:
 
