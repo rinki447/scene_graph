@@ -1,4 +1,8 @@
 # Scene_graph
+The list of path to all video frames of required dataset are kept in "input_dir" file (text file). The main file i.e, final_obj_rel_copy.py file loads those video frames using their path from "input_dir" file and then it initially uses fasterRCNN (coco trained) model to detect objects for all frames in all videos and save them into "saving_dir_path". 
+
+Next the final_obj_rel_copy.py file accesses those object details using "saving_dir_path" and generates scene graph captions by using "tempura_predcls" model. The relationships detected between human-object pairs for each frame are saved in "output_dir path".
+
 1. Within scene_graph folder create "data" folder and download glove file there.
 2. Create fasterRCNN folder within scene_graph and download the required (coco trained or action genome trained) Faster-RCNN model from https://github.com/jwyang/faster-rcnn.pytorch.
 3. Set up the fasterRCNN trained on coco dataset:
