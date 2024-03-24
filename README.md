@@ -40,6 +40,7 @@ python setup.py build develop
 * dataloader
 * lib
 * lib2
+  
   lib2 folder has files containing functions required for object detection and lib folder has files containing functions required for relationship detection.
 
 
