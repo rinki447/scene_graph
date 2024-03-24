@@ -1,0 +1,4 @@
+# ninja log v5
+3	13984	1692521675004421000	/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/build/temp.linux-x86_64-cpython-310/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/model/csrc/cpu/ROIAlign_cpu.o	24a967d6fdeb7444
+3	14232	1692521675252580000	/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/build/temp.linux-x86_64-cpython-310/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/model/csrc/cpu/nms_cpu.o	e19780227bc16662
+6	15849	1692521676875757000	/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/build/temp.linux-x86_64-cpython-310/data/AmitRoyChowdhury/sayak/fasterRCNN/lib/model/csrc/vision.o	8c48a35e2486bb30
