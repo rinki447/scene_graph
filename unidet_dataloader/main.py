@@ -14,49 +14,44 @@ python3 extract_ego4d_segment_unidet_outputs.py --video-dir ${EGO4D_CLIPS_DIR} \
 import argparse
 import os, json
 import tqdm
-import pickle
 
-import torch
-import torchvision.transforms as transforms
-import torchvision.transforms._transforms_video as transforms_video
-from utils import convert_tensors_to_images, get_frame_ids, video_loader_by_frames
+from dataset import SegFileDataset
 
 
 def main(args):
 
     ego4d_annots_path = args.ego4d_annots_path
     unidet_outputs_dir = args.unidet_outputs_dir
-
-    with open(ego4d_annots_path, "r") as f:
-        lta_annots = json.load(f)['clips']
+    video_dir = args.video_dir
 
     num_frames = args.num_frames
 
-    save_dir = args.save_dir
+    seg_file_dataset = SegFileDataset(
+        unidet_outputs_dir=unidet_outputs_dir,
+        video_dir= video_dir,
+        annots_path=ego4d_annots_path
+    )
 
-    if not os.path.exists(save_dir):
-        os.makedirs(save_dir)
+    # for _, seg in tqdm.tqdm(enumerate(lta_annots)):
 
-    for _, seg in tqdm.tqdm(enumerate(lta_annots)):
+    #     vid_path = seg['clip_uid'] + ".mp4"
+    #     start_frame = seg['action_clip_start_frame']
+    #     end_frame = seg['action_clip_end_frame']
 
-        vid_path = seg['clip_uid'] + ".mp4"
-        start_frame = seg['action_clip_start_frame']
-        end_frame = seg['action_clip_end_frame']
+    #     seg_name = vid_path.split(".m")[0] + "_start_frame_" + str(start_frame) +\
+    #           "_end_frame_" + str(end_frame)
 
-        seg_name = vid_path.split(".m")[0] + "_start_frame_" + str(start_frame) +\
-              "_end_frame_" + str(end_frame)
-
-        # Load unidet outputs for the segment
-        with open(unidet_outputs_dir + seg_name + ".json", "r") as f:
-            unidet_out = json.load(f)        
+    #     # Load unidet outputs for the segment
+    #     with open(unidet_outputs_dir + seg_name + ".json", "r") as f:
+    #         unidet_out = json.load(f)        
         
-        frame_ids = list(unidet_out.keys()) # 16 frame ids
+    #     frame_ids = list(unidet_out.keys()) # 16 frame ids
 
-        # (num_frames, H, W, C) Convert to torch format.
-        frames = video_loader_by_frames(args.video_dir, vid_path, frame_ids) 
+    #     # (num_frames, H, W, C) Convert to torch format.
+    #     frames = video_loader_by_frames(args.video_dir, vid_path, frame_ids) 
 
-        # # (num_frames, H, W, C)
-        # np_frames = convert_tensors_to_images(frames)
+    #     # # (num_frames, H, W, C)
+    #     # np_frames = convert_tensors_to_images(frames)
 
 
 if __name__ == '__main__':
