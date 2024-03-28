@@ -51,9 +51,9 @@ def video_loader_by_frames(root, vid, frame_ids):
     #how to get im_info using im_scale and blob shape?
 
     img_tensor = [torch.tensor(frame, dtype=torch.float32) for frame in frames]
-	img_tensor = img_tensor.permute(0, 3, 1, 2)
-	gt_boxes = torch.zeros([img_tensor.shape[0], 1, 5])
-	num_boxes = torch.zeros([img_tensor.shape[0]], dtype=torch.int64)
+    img_tensor = img_tensor.permute(0, 3, 1, 2)
+    gt_boxes = torch.zeros([img_tensor.shape[0], 1, 5])
+    num_boxes = torch.zeros([img_tensor.shape[0]], dtype=torch.int64)
 
-	return img_tensor, im_info, gt_boxes, num_boxes, frame_ids, vid
+    return img_tensor, im_info, gt_boxes, num_boxes, frame_ids, vid
     #return torch.stack(frames, dim=0)
