@@ -1,5 +1,6 @@
 import torchvision.transforms as T
 import numpy as np
+import json
 import decord
 import os.path as osp
 import torch
@@ -81,3 +82,18 @@ def video_loader_by_frames(root, vid, frame_ids):
         print("Erroneous video: ", vid)
         frames = [torch.zeros((240, 320, 3)) for _ in range(len(frame_ids))]
     return torch.stack(frames, dim=0)
+
+def return_id(unidet_label_file_path:str, class_name:str):
+    """Given the unidet_label_file_path and a class_name, return the corresponding index.
+
+    Args:
+        unidet_label_file_path: (str) Path to the unidet label file "learned_mAP%2BM.json"
+        class_name: (str) Class whose corresponding index you want to return.
+    """
+    with open(unidet_label_file_path, "r") as f:
+        unidet_label_dict = json.load(f)
+
+    for label_mapping in unidet_label_dict['categories']:
+        if label_mapping['name'] == class_name:
+            return label_mapping['id']
+    
